@@ -1,0 +1,583 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 11 version
+*/
+
+/* todo styles */
+.todo-container{
+
+    width: 100%;
+}
+
+
+
+.todo-center{
+
+    /* border: 2px solid green; */
+
+    padding: 15px;
+
+}
+
+
+
+.todo-heading .title{
+
+
+
+    color: #E16A54;
+
+    font-size: 30px;
+
+    font-weight: bold;
+
+    text-transform: capitalize;
+
+    letter-spacing: 1px;
+
+    padding-bottom: 30px;
+
+}
+
+
+
+.todo-count{
+
+
+
+    width: 100%;
+
+    /* border: 2px solid black; */
+
+    display: -webkit-box;
+
+    display: -ms-flexbox;
+
+    display: flex;
+
+    -webkit-box-pack: center;
+
+        -ms-flex-pack: center;
+
+            justify-content: center;
+
+    -webkit-column-gap: 20px;
+
+       -moz-column-gap: 20px;
+
+            column-gap: 20px;
+
+    margin-bottom: 30px;
+
+}
+
+
+
+.todo-count li{
+
+
+
+    background-color: #fff;
+
+    border: 2px solid #E16A54;
+
+    color: #000;
+
+    padding: 5px;
+
+    cursor: pointer;
+
+    border-radius: 5px;
+
+    font-size: 12px;
+
+    text-transform: capitalize;
+
+    letter-spacing: 1px;
+
+    -webkit-transition: all 0.3s linear;
+
+    -o-transition: all 0.3s linear;
+
+    transition: all 0.3s linear;
+
+}
+
+
+
+.todo-count li:hover , .todo-count li.active {
+
+
+
+    background-color: #E16A54 ;
+
+    color: #fff;
+
+   
+
+}
+
+
+
+.todo-count li:active{
+
+
+
+    -webkit-transform: scale(0.98);
+
+
+
+        -ms-transform: scale(0.98);
+
+
+
+            transform: scale(0.98);
+
+}
+
+
+
+.todo-form{
+
+
+
+    max-width: 650px;
+
+    display: -webkit-box;
+
+    display: -ms-flexbox;
+
+    display: flex;
+
+    -webkit-box-pack: baseline;
+
+        -ms-flex-pack: baseline;
+
+            justify-content: baseline;
+
+    margin-left: auto;
+
+    margin-right: auto;
+
+   
+
+}
+
+
+
+.todo-form input{
+
+    width: 80%;
+
+    min-height: 40px;
+
+    padding: 0 10px;
+
+    border: 2px solid rgb(223, 217, 215);
+
+    border-right: none;
+
+    outline: none;
+
+    border-radius: 4px 0 0 4px;
+
+    font-size: 16px;
+
+    color: #000;
+
+    text-transform: capitalize;
+
+}
+
+
+
+.todo-form button{
+
+
+
+    width: 20%;
+
+    background-color: #E16A54;
+
+    border: none;
+
+    outline: none;
+
+    font-size: 15px;
+
+    text-transform: capitalize;
+
+    letter-spacing: 1px;
+
+    color: #fff;
+
+    cursor: pointer;
+
+    border-radius: 0 4px 4px 0;
+
+
+
+}
+
+
+
+.task-list{
+
+
+
+    max-width: 650px;
+
+    /* border: 2px solid red; */
+
+    margin-left: auto;
+
+    margin-right: auto;
+
+    margin-top: 20px;
+
+    display: -webkit-box;
+
+    display: -ms-flexbox;
+
+    display: flex;
+
+    -webkit-box-orient: vertical;
+
+    -webkit-box-direction: normal;
+
+        -ms-flex-direction: column;
+
+            flex-direction: column;
+
+    row-gap: 15px;
+
+}
+
+
+
+.single-task{
+
+
+
+    width: 100%;
+
+    background-color: #fff;
+
+    /* border: 2px solid black; */
+
+    border-radius: 4px;
+
+    -webkit-box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
+
+            box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
+
+    padding: 6px 10px;
+
+    -webkit-transition: all 0.2s linear;
+
+    -o-transition: all 0.2s linear;
+
+    transition: all 0.2s linear;
+
+   
+
+}
+
+
+
+.single-task:hover{
+
+
+
+   
+
+    -webkit-box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+
+
+
+   
+
+            box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+
+}
+
+
+
+
+
+.task-content{
+
+    width: 100%;
+
+    height: 100%;
+
+    display: -webkit-box;
+
+    display: -ms-flexbox;
+
+    display: flex;
+
+    -webkit-box-pack: justify;
+
+        -ms-flex-pack: justify;
+
+            justify-content: space-between;
+
+    -webkit-box-align: center;
+
+        -ms-flex-align: center;
+
+            align-items: center;
+
+}
+
+
+
+.task-content .task{
+
+    /* width: 80%; */
+
+    height: 100%;
+
+    /* border: 2px solid yellow; */
+
+    font-size: 20px;
+
+    text-transform: capitalize;
+
+    color: #E16A54;
+
+   
+
+   
+
+}
+
+
+
+
+.task-content .task-icons{
+
+    /* width: 20%; */
+
+    height: 100%;
+
+    /* border: 2px solid red; */
+
+    display: -webkit-box;
+
+    display: -ms-flexbox;
+
+    display: flex;
+
+    -webkit-box-orient: horizontal;
+
+    -webkit-box-direction: normal;
+
+        -ms-flex-direction: row;
+
+            flex-direction: row;
+
+    -webkit-box-pack: justify;
+
+        -ms-flex-pack: justify;
+
+            justify-content: space-between;
+
+    -webkit-box-align: center;
+
+        -ms-flex-align: center;
+
+            align-items: center;
+
+    -webkit-column-gap: 15px;
+
+       -moz-column-gap: 15px;
+
+            column-gap: 15px;
+
+}
+
+
+
+
+
+.task-icons span i{
+
+
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+    font-weight: bold;
+
+    -webkit-transition: all 0.3s linear;
+
+    -o-transition: all 0.3s linear;
+
+    transition: all 0.3s linear;
+
+   
+
+}
+
+
+
+.task-icons span.done-btn{
+
+
+
+    color: gray;
+
+    opacity: 0.6;
+
+}
+
+
+
+.task-icons span.done-btn.green{
+
+
+
+    color: green;
+
+   
+
+
+
+}
+
+
+
+
+
+.task-icons span.edit-btn{
+
+
+
+    color: blue;
+
+    opacity: 0.6;
+
+}
+
+
+
+.task-icons span.delete-btn{
+
+   
+
+    color: red;
+
+    opacity: 0.6;
+
+
+
+}
+
+
+
+.task-icons span.edit-btn:hover , .task-icons span.delete-btn:hover{
+
+ opacity: 1;
+
+}
+
+
+
+.button-container{
+
+
+
+    margin-top: 20px;
+
+   
+
+}
+
+
+
+.button-container  a{
+
+
+
+    width: 120px;
+
+    min-height: 40px;
+
+    font-size: 16px;
+
+    text-transform: capitalize;
+
+    letter-spacing: 1px;
+
+    background-color: #E16A54;
+
+    display: -webkit-inline-box;
+
+    display: -ms-inline-flexbox;
+
+    display: inline-flex;
+
+    -webkit-box-pack: center;
+
+        -ms-flex-pack: center;
+
+            justify-content: center;
+
+    -webkit-box-align: center;
+
+        -ms-flex-align: center;
+
+            align-items: center;
+
+    border-radius: 5px;
+
+    color: #fff;
+
+    cursor: pointer;
+
+    -webkit-transition: all 0.3s linear;
+
+    -o-transition: all 0.3s linear;
+
+    transition: all 0.3s linear;
+
+}
+
+
+
+.button-container  a:hover{
+
+
+
+    opacity: 0.8;
+
+}
+
+
+
+.copy-right , .copy-right a{
+
+    text-align: center;
+
+    margin-top: 15px;
+
+    font-size: 12px;
+
+    color: #09122C;
+
+   
+
+}
+
+
+
+
+
+
+
+

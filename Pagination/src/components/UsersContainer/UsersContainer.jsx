@@ -36,7 +36,7 @@ function UsersContainer(){
                                 <h3 className="username">{user?.name?.first}</h3>
                             </div>
                             <div className="button-container">
-                                <Link  to={`/user/${user?.login?.uuid}`}  >view profile</Link>
+                                <Link  to={`/${user?.login?.uuid}`}  >view profile</Link>
                             </div>
                         </article>              
                     )

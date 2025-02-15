@@ -10,8 +10,7 @@ function App(){
  
   <Routes>
     <Route path='/' element={<UsersContainer /> } />
-    <Route path='/user' element={<UsersContainer /> } />
-    <Route path='/user/:userid' element={<UserProfile/> } />
+    <Route path='/:userid' element={<UserProfile/> } />
     <Route path='*' element={<UsersContainer/>} />
    </Routes>
   </>)

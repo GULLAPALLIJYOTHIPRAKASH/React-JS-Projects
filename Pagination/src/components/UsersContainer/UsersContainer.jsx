@@ -17,11 +17,11 @@ function UsersContainer(){
                 <div className="underline"></div>
             </div>
             {
-                users_list[currentPage]?.length == 0  && loading == true && error?.status == false && <div className='text-center paddingTopMobile-30 paddingTopDesktop-30 loading' >data fetching .....!</div>
+                !users_list[currentPage]  && loading == true && error?.status == false && <div className='text-center paddingTopMobile-30 paddingTopDesktop-30 loading' >data fetching .....!</div>
             }
             {
  
-                users_list[currentPage]?.length == 0  &&  loading == false && error?.status == true && <p className='text-center paddingTopMobile-30 paddingTopDesktop-30 error'>{error.msg}</p>
+                !users_list[currentPage] &&  loading == false && error?.status == true && <p className='text-center paddingTopMobile-30 paddingTopDesktop-30 error'>{error.msg}</p>
             }
             <div className="users-section three-template-cols paddingTopMobile-30 paddingTopDesktop-30 paddingBottomMobile-30 paddingBottomDesktop-30">
             {

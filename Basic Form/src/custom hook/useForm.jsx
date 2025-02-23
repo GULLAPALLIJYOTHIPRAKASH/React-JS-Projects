@@ -538,7 +538,7 @@ const handle_submit =(e) =>{
 
     }
 
-    return( [ image , information , handle_inputs , handle_submit ])
+    return( [ image , information , handle_inputs , handle_submit ,setImage ])
 
 
    

@@ -9,7 +9,7 @@ function Form(){
 
 
 
-      const [ image , information , handle_inputs , handle_submit ] = useForm();
+      const [ image , information , handle_inputs , handle_submit,setImage ] = useForm();
 
 
     return(<>

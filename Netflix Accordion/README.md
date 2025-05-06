@@ -6,7 +6,7 @@ It displays a list of questions, and when a user clicks a question, it smoothly 
 ---
 
 ## 🌐 Live Demo of React js
-👉 [View Website](https://gjyothiprakash-netflix-accordion-reactjs.netlify.app)
+👉 [View Website](https://gjyothiprakash-accordion-reactjs.netlify.app)
 
 Click the links above to view the live versions of this project.
 

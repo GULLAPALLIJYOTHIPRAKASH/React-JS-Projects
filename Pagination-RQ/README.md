@@ -17,7 +17,7 @@ A dynamic **product listing app** with **pagination** and **individual product d
 
 ## 🌐 Live Demo
 
-👉 [View Live Project](https://gjp-pagination-reactquery.netlify.app)
+👉 [View Live Project](https://gjp-pagination-rq.netlify.app)
 
 See the project in action deployed via Netlify.
 

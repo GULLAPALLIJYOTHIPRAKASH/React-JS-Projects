@@ -1,0 +1,81 @@
+.recommended-container{
+
+
+
+    width: 100%;
+
+    /* border: 2px solid red; */
+
+    padding: 20px;
+
+}
+
+
+
+.recommended-container h1{
+
+
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+
+    color: #000;
+
+    margin-bottom: 10px;
+
+}
+
+
+
+.recommended-buttons{
+
+
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+}
+
+
+
+.recommended-buttons .btn{
+
+
+
+    border: 0.6px solid #ccc;
+
+    padding: 10px 15px;
+
+    text-align: center;
+
+    color: #323232;
+
+    background: #fff;
+
+    cursor: pointer;
+
+    border-radius: 5px;
+
+    outline: none;
+
+   
+
+
+
+}
+
+
+
+.btn.active{
+
+
+
+    background-color: #d5d5d5;
+
+}

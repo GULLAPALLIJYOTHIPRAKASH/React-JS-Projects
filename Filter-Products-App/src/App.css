@@ -1,0 +1,163 @@
+*{
+ 
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+ 
+*,::after,::before{
+ 
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+ 
+a{
+ 
+    text-decoration: none;
+}
+ 
+ul{
+ 
+    list-style-type: none;
+}
+ 
+.wrapper{
+ 
+    max-width: 1250px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+ 
+ 
+body{
+ 
+    font-family: sans-serif ,'Times New Roman', Times, serif;
+}
+ 
+ 
+.flex-container{
+    width: 100%;
+    height: 100%;
+    display: flex;  
+   
+}
+ 
+.sub-section{
+ 
+    width: 70%;
+    height: 100%;
+}
+ 
+@media screen and (min-width: 768px){
+ 
+    .sub-section{
+ 
+        width: 80%;
+        height: 100%;
+    }
+ 
+ 
+}
+ 
+ 
+ 
+/* padding classes */
+ @media screen and (max-width: 991px) {
+.paddingTopMobile-10 {
+padding-top: 10px !important;
+}
+.paddingTopMobile-20 {
+padding-top: 20px !important;
+}
+.paddingTopMobile-30 {
+padding-top: 30px !important;
+}
+.paddingTopMobile-40 {
+padding-top: 40px !important;
+}
+.paddingTopMobile-50 {
+padding-top: 50px !important;
+}
+.paddingBottomMobile-10 {
+padding-bottom: 10px !important;
+}
+.paddingBottomMobile-20 {
+padding-bottom: 20px !important;
+}
+.paddingBottomMobile-30 {
+padding-bottom: 30px !important;
+}
+.paddingBottomMobile-40 {
+padding-bottom: 40px !important;
+}
+.paddingBottomMobile-50 {
+padding-bottom: 50px !important;
+}
+}
+ @media screen and (min-width: 992px) {
+.paddingTopDesktop-10 {
+padding-top: 10px !important;
+}
+.paddingTopDesktop-20 {
+padding-top: 20px !important;
+}
+.paddingTopDesktop-30 {
+padding-top: 30px !important;
+}
+.paddingTopDesktop-40 {
+padding-top: 40px !important;
+}
+.paddingTopDesktop-50 {
+padding-top: 50px !important;
+}
+.paddingTopDesktop-60 {
+padding-top: 60px !important;
+}
+.paddingTopDesktop-70 {
+padding-top: 70px !important;
+}
+.paddingTopDesktop-80 {
+padding-top: 80px !important;
+}
+.paddingTopDesktop-90 {
+padding-top: 90px !important;
+}
+.paddingTopDesktop-100 {
+padding-top: 100px !important;
+}
+.paddingBottomDesktop-10 {
+padding-bottom: 10px !important;
+}
+.paddingBottomDesktop-20 {
+padding-bottom: 20px !important;
+}
+.paddingBottomDesktop-30 {
+padding-bottom: 30px !important;
+}
+.paddingBottomDesktop-40 {
+padding-bottom: 40px !important;
+}
+.paddingBottomDesktop-50 {
+padding-bottom: 50px !important;
+}
+.paddingBottomDesktop-60 {
+padding-bottom: 60px !important;
+}
+.paddingBottomDesktop-70 {
+padding-bottom: 70px !important;
+}
+.paddingBottomDesktop-80 {
+padding-bottom: 80px !important;
+}
+.paddingBottomDesktop-90 {
+padding-bottom: 90px !important;
+}
+.paddingBottomDesktop-100 {
+padding-bottom: 100px !important;
+}
+}
+ 
+ 

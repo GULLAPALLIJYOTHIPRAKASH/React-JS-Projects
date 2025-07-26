@@ -7,7 +7,7 @@ const queryClient = new QueryClient();
 createRoot(document.getElementById('root')).render(
 
   <QueryClientProvider client={queryClient}>
-    <BrowserRouter basename='/products/'>
+    <BrowserRouter >
     <App />
     </BrowserRouter>
   </QueryClientProvider>

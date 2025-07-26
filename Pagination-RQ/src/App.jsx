@@ -14,6 +14,8 @@ function App(){
 
     <Route path='/:productid' element={<Product/>} />
 
+    <Route path="*" element={<Pagination/>}/>
+
   </Routes>
   </>)
 }

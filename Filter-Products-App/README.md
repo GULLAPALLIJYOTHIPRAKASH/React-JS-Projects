@@ -19,7 +19,7 @@ A fully responsive **eCommerce-style product filtering application** built with 
 
 ## 🌐 Live Demo
 
-👉 [View Live Project](https://gjp-filter-products-app.netlify.app)
+👉 [View Live Project](gjlp-filtered-products-app.netlify.app)
 
 Try out the product filters and search functionality live.
 

@@ -1,5 +1,5 @@
 import React from "react";
-import "./sidebar.css";
+import "./Sidebar.css";
 import Category from "./Category/Category";
 import Price from "./Price/Price";
 import Color from "./Color/Colors";

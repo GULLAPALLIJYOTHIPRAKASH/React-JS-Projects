@@ -16,7 +16,7 @@ A modern **scroll progress bar** built using **React.js**, which visually indica
 
 ## 🌐 Live Demo
 
-👉 [View Live Project](https://gjp-scroll-progressbar-.netlify.app)
+👉 [View Live Project](https://gjp-scroll-progressbar.netlify.app)
 
 Experience the scroll progress bar and API data integration in a live demo.
 

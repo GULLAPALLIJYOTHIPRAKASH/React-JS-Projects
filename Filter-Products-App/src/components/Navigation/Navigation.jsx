@@ -4,7 +4,6 @@ function Navigation({handleInputChange , query}){
  
    
    
-    console.log("navigation");
    
    
     return(<>

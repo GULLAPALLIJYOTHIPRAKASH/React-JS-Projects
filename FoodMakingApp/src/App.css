@@ -1,0 +1,22 @@
+@import "tailwindcss";
+ 
+@layer components {
+  .wrapper {
+    max-width: 1250px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+ 
+ 
+}
+ 
+.active{
+ 
+   @apply underline underline-offset-[5px] decoration-[#cfb02c];
+}
+ 
+ 
+ 
+ 

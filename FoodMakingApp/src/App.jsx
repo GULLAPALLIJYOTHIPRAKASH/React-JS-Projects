@@ -1,10 +1,10 @@
 import "./App.css";
 import React, { useContext, useState } from "react";
 import { Route, Routes, useLocation, useParams } from 'react-router-dom';
-import Navbar from "./components/Navbar";
-import Sidebar from "./components/Sidebar";
-import Footer from "./components/Footer";
-import Loading from "./components/Loading";
+import Navbar from "./components/Navbar.jsx";
+import Sidebar from "./components/Sidebar.jsx";
+import Footer from "./components/Footer.jsx";
+import Loading from "./components/Loading.jsx";
 function App(){
  
     const [close , setClose] = useState(false);
@@ -16,11 +16,11 @@ function App(){
  
  
  
-    const LazyContact = React.lazy(() => import("./Pages/Contact/Contact"));
-    const LazyAbout = React.lazy(() => import("./Pages/About/About"));
-    const LazyRecipes = React.lazy(() => import("./Pages/Recipes/Recipes"));
-    const LazyHome = React.lazy(() => import("./Pages/Home/Home"));
-    const LazyRecipeDetails = React.lazy(() => import("./Pages/Recipe_Details/Recipe_Details"));
+    const LazyContact = React.lazy(() => import("./Pages/Contact/Contact.jsx"));
+    const LazyAbout = React.lazy(() => import("./Pages/About/About.jsx"));
+    const LazyRecipes = React.lazy(() => import("./Pages/Recipes/Recipes.jsx"));
+    const LazyHome = React.lazy(() => import("./Pages/Home/Home.jsx"));
+    const LazyRecipeDetails = React.lazy(() => import("./Pages/Recipe_Details/Recipe_Details.jsx"));
    
     return (<>
     <Navbar  close={close} handle_Hambergur={handle_Hambergur}/>

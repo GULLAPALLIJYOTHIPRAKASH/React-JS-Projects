@@ -16,11 +16,11 @@ function App(){
  
  
  
-    const LazyContact = React.lazy(() => import("./Pages/Contact/Contact.jsx"));
-    const LazyAbout = React.lazy(() => import("./Pages/About/About.jsx"));
-    const LazyRecipes = React.lazy(() => import("./Pages/Recipes/Recipes.jsx"));
-    const LazyHome = React.lazy(() => import("./Pages/Home/Home.jsx"));
-    const LazyRecipeDetails = React.lazy(() => import("./Pages/Recipe_Details/Recipe_Details.jsx"));
+    const LazyAbout = React.lazy(() => import("./pages/About/About.jsx"));
+    const LazyContact = React.lazy(() => import("./pages/Contact/Contact.jsx"));
+    const LazyRecipes = React.lazy(() => import("./pages/Recipes/Recipes.jsx"));
+    const LazyHome = React.lazy(() => import("./pages/Home/Home.jsx"));
+    const LazyRecipeDetails = React.lazy(() => import("./pages/Recipe_Details/Recipe_Details.jsx"));
    
     return (<>
     <Navbar  close={close} handle_Hambergur={handle_Hambergur}/>

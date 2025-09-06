@@ -1,0 +1,33 @@
+.input-search-container{
+
+
+
+    width: 100%;
+
+    /* border: 2px solid red; */
+
+}
+
+
+
+.input-search-center input{
+
+
+
+    width: 100%;
+
+    padding: 10px ;
+
+    outline: none;
+
+    border: 1px solid orangered;
+
+    background-color: var(--background);
+
+    color: black;
+
+    font-weight: 500;
+
+   
+
+}

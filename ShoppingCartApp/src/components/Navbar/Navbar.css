@@ -1,0 +1,83 @@
+.navbar-container{
+ 
+    width: 100%;
+    min-height: 50px;
+    /* border: 2px solid red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    border-bottom: 1px solid orangered;
+}
+ 
+.navbar-container .navbar-center{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    /* border: 2px solid red; */
+}
+ 
+ 
+ 
+.navbar-center .main{
+    width: 100%;
+    height: 100%;
+    /* border: 2px solid red; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+ 
+.main .logo{
+ 
+    font-size: 25px;
+    color: rgb(246, 96, 2);
+    cursor: pointer;
+}
+ 
+.main .search-container input{
+ 
+    width: 250px;
+   padding: 10px;
+   outline: none;
+   border: 1px solid rgb(246, 96, 2);
+   border-radius: 10px;
+}
+ 
+.main .cart{
+ 
+    position: relative;
+}
+ 
+.cart .dot{
+ 
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    background-color: rgb(246, 96, 2);
+    outline: 4px solid rgb(255, 255, 255);
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+}
+ 
+.main .cart i{
+ 
+    font-size: 25px;
+    color: rgb(246, 96, 2);
+    cursor: pointer;
+    transition: all 0.3 linear;
+}
+ 
+ 
+.main .cart i:hover{
+ 
+   opacity: 0.7;
+}

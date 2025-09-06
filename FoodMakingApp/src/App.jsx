@@ -30,22 +30,12 @@ function App(){
     <Sidebar  close={close} handle_Hambergur={handle_Hambergur}/>
  
     <Routes>
-        <Route path="/" element={<React.Suspense fallback={<Loading/>}>
-        <LazyHome/>
-        </React.Suspense>} />
-        <Route path="/about" element={<React.Suspense fallback={<Loading/>}>
-        <LazyAbout/>
-        </React.Suspense>} />
-        <Route path="/recipes" element={<React.Suspense fallback={<Loading/>}>
-        <LazyRecipes/>
-        </React.Suspense>} />
-        <Route path="/recipes/:recipeid" element={<React.Suspense fallback={<Loading/>}>
-        <LazyRecipeDetails/>
-        </React.Suspense>} />
-        <Route path="/contact" element={<React.Suspense fallback={<Loading/>}>
-            <LazyContact/>
-        </React.Suspense>} />
-        <Route path="*" element={<React.Suspense fallback={<Loading/>}> <LazyHome/> </React.Suspense>} />
+        <Route path="/" element={<LazyHome/>} />
+        <Route path="/about" element={<LazyAbout/>} />
+        <Route path="/recipes" element={<LazyRecipes/>} />
+        <Route path="/recipes/:recipeid" element={<LazyRecipeDetails/>} />
+        <Route path="/contact" element={<LazyContact/>} />
+        <Route path="*" element={<LazyHome/>} />
     </Routes>
  
     <Footer/>

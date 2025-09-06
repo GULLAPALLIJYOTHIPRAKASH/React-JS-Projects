@@ -48,7 +48,7 @@ function App(){
     </Routes>
  
     <Footer/>
-    <ToastContainer limit={0}  autoClose={1000} />
+    <ToastContainer   autoClose={1000} />
  
    
  

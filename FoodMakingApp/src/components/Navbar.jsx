@@ -1,40 +1,10 @@
 import { Link, NavLink } from "react-router-dom";
-import { useContext , useMemo } from "react";
-import { FavContext } from "../Context/FavContext";
 import assets from "../assets/assets";
  
  
 function Navbar({handle_Hambergur}){
  
- 
-    const {favList} = useContext(FavContext);
- 
-    const totalFav  = useMemo(() => {
- 
-     let count = 0;
- 
-     for(let i in favList){
- 
- 
-        if(favList[i]){
- 
-           
-           
- 
-            count = count + 1
-        }
-        else{
- 
-            count = count - 1
-        }
- 
-       
-    }
-    return count
-       
- 
-    },[favList])
- 
+
    
    
  
@@ -65,5 +35,5 @@ function Navbar({handle_Hambergur}){
     </>)
 }
  
-export default Navbar;
+export default React.memo(Navbar);
  

@@ -1,5 +1,5 @@
 import "./App.css";
-import React, { useContext, useState } from "react";
+import React, { useCallback, useContext, useState } from "react";
 import { Route, Routes, useLocation, useParams } from 'react-router-dom';
 import Navbar from "./components/Navbar.jsx";
 import Sidebar from "./components/Sidebar.jsx";
@@ -11,10 +11,10 @@ function App(){
  
     const [close , setClose] = useState(false);
    
-    const handle_Hambergur = () => {
+    const handle_Hambergur = useCallback(() => {
  
     setClose(!close)
-    }
+    },[close])
  
  
  

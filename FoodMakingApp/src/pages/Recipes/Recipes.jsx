@@ -1,6 +1,5 @@
-import { useCallback, useContext, useEffect, useState } from "react";
+import { useEffect } from "react";
 import React from "react";
-import { Link } from "react-router-dom";
 import useFilter from "../../custom-hook/useFilter";
 import Input_Search from "../../components/Input_Search";
 import Recommended from "../../components/Recommended";

@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import assets from "../assets/assets";
  
@@ -25,5 +24,5 @@ function Sidebar({close , handle_Hambergur }){
     </>)
 }
  
-export default Sidebar;
+export default React.memo(Sidebar);
  

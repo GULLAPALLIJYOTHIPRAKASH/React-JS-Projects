@@ -1,13 +1,9 @@
 import React, { useContext } from "react";
-import { Link, useLocation, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { FavContext } from "../Context/FavContext";
 function Recipe_Card({id , title , img ,cookTimeMinutes , mealtype }){
  
      const {favList , handle_Favourite} = useContext(FavContext);
- 
-     const {pathname} = useLocation();
-       
- 
    
     return(
         // <Link to={`/recipes/${id}`} className="w-[100%]">

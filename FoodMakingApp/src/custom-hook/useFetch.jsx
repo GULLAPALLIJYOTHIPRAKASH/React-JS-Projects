@@ -1,5 +1,4 @@
-import { useState , useEffect, useCallback, useMemo, useContext } from "react";
-import { FavContext } from "../Context/FavContext";
+import { useState , useEffect} from "react";
  
 function useFetch(){
  

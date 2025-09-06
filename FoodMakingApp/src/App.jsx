@@ -25,6 +25,7 @@ function App(){
     const LazyRecipeDetails = React.lazy(() => import("./pages/Recipe_Details/Recipe_Details.jsx"));
    
     return (<>
+    <React.Suspense fallback={<Loading/>}>
     <Navbar  close={close} handle_Hambergur={handle_Hambergur}/>
     <Sidebar  close={close} handle_Hambergur={handle_Hambergur}/>
  
@@ -50,7 +51,7 @@ function App(){
     <Footer/>
     <ToastContainer   autoClose={1000} />
  
-   
+   </React.Suspense>
  
     </>)
 }

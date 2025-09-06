@@ -10,8 +10,7 @@ function useFilter(){
  
     const  [recipes , Loading , error] = useFetch();
     const {favList} = useContext(FavContext);
-   
- 
+
  
     const [query , setQuery] = useState(() => {
  
@@ -83,7 +82,7 @@ function useFilter(){
  
     // search filter
  
-    const filterItems = recipes.filter((item) => {
+    const filterItems = recipes?.filter((item) => {
  
         return item.name.toLowerCase().indexOf(query.toLowerCase()) !== -1;
     })
@@ -101,27 +100,16 @@ function useFilter(){
         }
         if(selected){
  
-            if(selected == "favourite"){
+           
  
                 filtered_data  = filtered_data.filter((item) => {
- 
-               
-                return (favList[item.id]   == true  )
-            })
- 
-        }
- 
-            if(selected != "favourite"){
- 
-                filtered_data  = filtered_data.filter((item) => {
-                   
-                    return ( item.mealType[0].toLowerCase() === selected )
-   
+
+                    
+                //    here match the selected btn
+                    return (( selected == "favourite" ?  favList[item.id]   == true : true) &&(selected !="favourite" ? item.mealType[0].toLowerCase() === selected : true) );
  
                 })
  
- 
-        }  
  
     }
        
@@ -136,12 +124,11 @@ function useFilter(){
  
          
     };
- 
-   const result = filteredData(query ,recipes , selectedCategory);
- 
- 
- 
-    return [Loading , error , result , query , handle_Input , handle_Button]
+
+   const result = filteredData(query ,recipes , selectedCategory); 
+
+
+    return [Loading , error , result , query , handle_Input , handle_Button,recipes]
 }
  
  

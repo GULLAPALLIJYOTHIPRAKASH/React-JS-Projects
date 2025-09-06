@@ -35,10 +35,10 @@ function Recipes(){
    
           return (
    
-            <Link  className="w-[100%] "to={`/recipes/${id}`} key={id}>
-            <Recipe_Card  id={id} title={name}  img={image}  cookTimeMinutes={cookTimeMinutes} mealtype={mealType[0]}/>
+            // <Link  className="w-[100%]" "to={`/recipes/${id}`} key={id}>
+            <Recipe_Card  key={id} id={id} title={name}  img={image}  cookTimeMinutes={cookTimeMinutes} mealtype={mealType[0]}/>
            
-            </Link>
+            // </Link>
           )
  
         })

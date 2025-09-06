@@ -25,6 +25,10 @@ import two from "./2.png";
 import three from "./3.png";
 
 
+import about_bg from "./about-bg.jpg";
+import contact_bg from "./contact-bg.jpg";
+
+
 
 const assets = {
 
@@ -49,6 +53,11 @@ const assets = {
     plate2,
 
     plate3,
+
+    about_bg ,
+
+    contact_bg
+
 
    
 

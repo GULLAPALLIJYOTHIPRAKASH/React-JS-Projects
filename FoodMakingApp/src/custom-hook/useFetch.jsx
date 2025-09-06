@@ -6,7 +6,6 @@ function useFetch(){
     const [recipes , setRecipes] = useState([]);
     const [Loading  , setLoading] = useState(true);
     const [error , setError] = useState({isError: false , msg:""})
-    const {favList} = useContext(FavContext);
  
  
 const fetch_recipe = async () => {
@@ -18,8 +17,8 @@ const fetch_recipe = async () => {
  
     const req = await fetch("https://dummyjson.com/recipes");
     const res = await req.json();
-   
-    setRecipes(res.recipes);
+    
+    setRecipes(res?.recipes);
     setLoading(false);
     setError({isError: false , msg:""});
  
@@ -39,11 +38,14 @@ const fetch_recipe = async () => {
  
 useEffect(() => {
  
-    fetch_recipe()
+    fetch_recipe();
+
+
+
 },[])
  
  
-return [recipes , Loading , error]
+return [recipes , Loading , error , setRecipes]
 }
  
 export default useFetch;

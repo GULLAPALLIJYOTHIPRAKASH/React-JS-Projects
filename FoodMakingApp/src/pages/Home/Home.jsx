@@ -4,8 +4,15 @@ import Recipe_Card from "../../components/Recipe_Card";
 import Home_Contact from "../../components/Home_Contact";
 import assets from "../../assets/assets";
 import { recipes } from "../../assets/assets";
+import { useEffect } from "react";
  
 function Home(){
+
+     useEffect(() => {
+     
+            window.scrollTo(0,0)
+     
+        } ,[])
  
  
     return(<>
@@ -64,7 +71,7 @@ function Home(){
  
                         const {name , cookTimeMinutes , image   } = item;
  
-                        return <Recipe_Card key={"r" + index} title={name} id={"r" + index} img={image} cookTimeMinutes={cookTimeMinutes} />
+                        return <Recipe_Card key={"r" + index} title={name} id={index + 1} img={image} cookTimeMinutes={cookTimeMinutes} />
                     })
                  
  
@@ -72,7 +79,7 @@ function Home(){
                
                
             </section>
-                <button className="block mx-auto text-white bg-[#cfb02c] text-xl p-[7px]  mt-[20px] text-center hover:opacity-70 rounded-[4px] cursor-pointer"><Link to="/recipes">view More</Link></button>
+                <button className="block mx-auto text-white bg-[#cfb02c] text-xl p-[10px_7px]  mt-[20px] text-center hover:opacity-70 rounded-[4px] cursor-pointer"><Link to="/recipes">view More</Link></button>
         </div>
     </div>
  

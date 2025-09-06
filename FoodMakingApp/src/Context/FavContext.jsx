@@ -1,4 +1,6 @@
 import React, { useState, useContext, useCallback, useEffect, useMemo } from "react";
+import { toast} from 'react-toastify';
+
  
 export const FavContext = React.createContext();
  
@@ -42,6 +44,8 @@ export const FavContextProvider = ({children}) => {
                            ...favList,
                            [e.target.getAttribute('value')] : true
                            })
+
+                           toast.success("Item added Favourite" , { toastId: 'added-101' });
            }
        
            else if(favList[e.target.getAttribute('value')]){
@@ -51,6 +55,8 @@ export const FavContextProvider = ({children}) => {
                    ...favList,
                    [e.target.getAttribute('value')] : false
                    })
+
+                        toast.warning("Item removed Favourite" , { toastId: 'removed-102' });
            }
            
        

@@ -1,4 +1,7 @@
 @import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
  
 @layer components {
   .wrapper {
@@ -16,6 +19,23 @@
  
    @apply underline underline-offset-[5px] decoration-[#cfb02c];
 }
+
+
+
+html {
+  @apply scroll-smooth;
+}
+
+@layer utilities {
+  .search-cancel-red::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    height: 1.5rem;
+    width: 1.5rem;
+    background: url("data:image/svg+xml;utf8,<svg fill='%23ef4444' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path d='M14.348 5.652a1 1 0 0 0-1.414-1.414L10 7.172 7.066 4.238a1 1 0 0 0-1.414 1.414L8.586 10l-2.934 2.934a1 1 0 1 0 1.414 1.414L10 12.828l2.934 2.934a1 1 0 0 0 1.414-1.414L11.414 10l2.934-2.934z'/></svg>") no-repeat center center;
+  }
+}
+
+
  
  
  

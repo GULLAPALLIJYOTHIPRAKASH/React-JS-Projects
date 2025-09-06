@@ -4,7 +4,7 @@ import { FavContext } from "../Context/FavContext";
 function RecipeDetail_Card({data}){
  
    
-    const {favList , handle_Favourite} = useContext(FavContext);
+    const {favList , handle_Favourite} = useContext(FavContext);    
  
     return(
 <>
@@ -12,7 +12,7 @@ function RecipeDetail_Card({data}){
         <div className="img-container w-[300px] relative overflow-hidden  rounded-[10px] mb-[15px]">
             <img src={data?.image} alt=""  className="w-[100%] h-[100%] object-center object-container" />
             <div className=" absolute top-[10px] right-[10px]">
-                <i value={data.id}  onClick={handle_Favourite} className={favList[data.id] ? "fa-solid fa-heart text-[20px] font-bold  bg-black p-[7px] rounded-[50%] text-[#cfb02c] cursor-pointer hover:text-[#cfb02c]" : "fa-solid fa-heart text-[20px] font-bold  bg-black p-[7px] rounded-[50%] text-[#344742] cursor-pointer hover:text-[#cfb02c]"}></i>
+                <i value={data.id}  onClick={handle_Favourite} className={favList[data.id] ? "fa-solid fa-heart text-[20px] font-bold  bg-black p-[7px] rounded-[50%] text-red-500 cursor-pointer" : "fa-solid fa-heart text-[20px] font-bold  bg-black p-[7px] rounded-[50%] text-[#344742] cursor-pointer"}></i>
             </div>
         </div>
         <h1 className="title text-xl text-[#344742] font-bold tracking-[1px] mb-[5px]">{data?.name}</h1>

@@ -5,6 +5,8 @@ import Navbar from "./components/Navbar.jsx";
 import Sidebar from "./components/Sidebar.jsx";
 import Footer from "./components/Footer.jsx";
 import Loading from "./components/Loading.jsx";
+import { ToastContainer} from 'react-toastify';
+
 function App(){
  
     const [close , setClose] = useState(false);
@@ -42,9 +44,11 @@ function App(){
         <Route path="/contact" element={<React.Suspense fallback={<Loading/>}>
             <LazyContact/>
         </React.Suspense>} />
+        <Route path="*" element={<React.Suspense fallback={<Loading/>}> <LazyHome/> </React.Suspense>} />
     </Routes>
  
     <Footer/>
+    <ToastContainer limit={0}  autoClose={1000} />
  
    
  

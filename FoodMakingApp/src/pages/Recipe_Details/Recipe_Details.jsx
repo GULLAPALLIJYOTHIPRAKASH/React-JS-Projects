@@ -1,23 +1,34 @@
 import { useNavigate, useParams } from "react-router-dom";
+import { useEffect } from "react";
+import Loading from "../../components/Loading.jsx";
 import useFilter from "../../custom-hook/useFilter";
 import RecipeDetail_Card from "../../components/RecipeDetail_Card";
  
 function Recipe_Details(){
  
     const {recipeid} = useParams();    
-    const [,,result] = useFilter();
+    const [loading,,,,,,recipes] = useFilter();
     const navigate = useNavigate()
-   
-   
- 
- 
-    const recipe = result.filter((item) => {
- 
+
+     useEffect(() => {
+     
+            window.scrollTo(0,0)
+     
+        } ,[])
+
+
+    const recipe = recipes?.filter((item) => {
+
  
         return item.id == recipeid
     })
  
-    const [data] = recipe
+    const [data] = recipe;
+
+
+
+
+    
  
    
    

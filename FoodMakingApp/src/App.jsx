@@ -3,6 +3,10 @@ import React, { useCallback, useContext, useState } from "react";
 import { Route, Routes, useLocation, useParams } from 'react-router-dom';
 import Navbar from "./components/Navbar.jsx";
 import Sidebar from "./components/Sidebar.jsx";
+import Home from "./pages/Home/Home.jsx";
+import About from "./pages/About/About.jsx";
+import Contact from "./pages/Contact/Contact.jsx";
+import RecipeDetails from "./pages/Recipe_Details/Recipe_Details.jsx";
 import Footer from "./components/Footer.jsx";
 import Loading from "./components/Loading.jsx";
 import { ToastContainer} from 'react-toastify';
@@ -18,30 +22,31 @@ function App(){
  
  
  
-    const LazyAbout = React.lazy(() => import("./pages/About/About.jsx"));
-    const LazyContact = React.lazy(() => import("./pages/Contact/Contact.jsx"));
+    // const LazyAbout = React.lazy(() => import("./pages/About/About.jsx"));
+    // const LazyContact = React.lazy(() => import("./pages/Contact/Contact.jsx"));
     const LazyRecipes = React.lazy(() => import("./pages/Recipes/Recipes.jsx"));
-    const LazyHome = React.lazy(() => import("./pages/Home/Home.jsx"));
-    const LazyRecipeDetails = React.lazy(() => import("./pages/Recipe_Details/Recipe_Details.jsx"));
+    // const LazyHome = React.lazy(() => import("./pages/Home/Home.jsx"));
+    // const LazyRecipeDetails = React.lazy(() => import("./pages/Recipe_Details/Recipe_Details.jsx"));
    
     return (<>
-    <React.Suspense fallback={<Loading/>}>
     <Navbar  close={close} handle_Hambergur={handle_Hambergur}/>
     <Sidebar  close={close} handle_Hambergur={handle_Hambergur}/>
  
     <Routes>
-        <Route path="/" element={<LazyHome/>} />
-        <Route path="/about" element={<LazyAbout/>} />
-        <Route path="/recipes" element={<LazyRecipes/>} />
-        <Route path="/recipes/:recipeid" element={<LazyRecipeDetails/>} />
-        <Route path="/contact" element={<LazyContact/>} />
-        <Route path="*" element={<LazyHome/>} />
+        <Route path="/" element={<Home/>} />
+        <Route path="/about" element={<About/>} />
+        <Route path="/recipes" element={<React.Suspense fallback={<Loading/>}>
+        <LazyRecipes/>
+        </React.Suspense>} />
+        <Route path="/recipes/:recipeid" element={<RecipeDetails/>} />
+        <Route path="/contact" element={<Contact/>} />
+        <Route path="*" element={<Home/>} />
     </Routes>
  
     <Footer/>
     <ToastContainer   autoClose={1000} />
  
-   </React.Suspense>
+   
  
     </>)
 }

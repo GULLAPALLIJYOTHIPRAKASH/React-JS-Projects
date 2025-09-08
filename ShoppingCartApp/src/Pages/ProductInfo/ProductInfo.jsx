@@ -2,6 +2,8 @@ import "./ProductInfo.css";
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useCart } from "../../Context/useCart";
+import { useDispatch, useSelector } from "react-redux";
+import { Add_To_Cart, fetchProducts } from "../../Redux/Slices/CartSlice";
 
 
 
@@ -10,85 +12,95 @@ function ProductInfo(){
 
    
 
-    const fetch_api = async (id) => {
+    // const fetch_api = async (id) => {
 
 
 
-        setLoading(true)
+    //     setLoading(true)
 
-        setIsError({status: false , msg: ""})
+    //     setIsError({status: false , msg: ""})
 
        
 
-        try {
+    //     try {
 
            
 
-            const req = await fetch(`https://dummyjson.com/products/${id}`);
+    //         const req = await fetch(`https://dummyjson.com/products/${id}`);
 
-            const res = await req.json();
-
-
+    //         const res = await req.json();
 
 
 
 
 
-            setLoading(false)
-
-            setIsError({status: false , msg: ""});
 
 
+    //         setLoading(false)
 
-            setProduct(res)
+    //         setIsError({status: false , msg: ""});
 
 
 
-            if(req.status == 404){
+    //         setProduct(res)
 
 
 
-                throw new Error("Data Not Found...!")
+    //         if(req.status == 404){
 
-            }
 
-           
+
+    //             throw new Error("Data Not Found...!")
+
+    //         }
 
            
 
-        } catch (error) {
+           
+
+    //     } catch (error) {
 
 
 
-            setLoading(false)
+    //         setLoading(false)
 
-            setIsError({status: true , msg: error.message || "SomeThing went wrong....!"});
+    //         setIsError({status: true , msg: error.message || "SomeThing went wrong....!"});
 
            
 
 
 
-        }
+    //     }
 
+    // }
+
+
+    const {productid} = useParams();
+    const navigate = useNavigate();  
+    const dispatch = useDispatch();
+    const {productsList , loading, isError , cartItems} = useSelector((state) => state.cart);
+
+    const [slide , setSlide] = useState(0);
+    let product = productsList.find((item) => item.id == productid ) ;
+
+    useEffect(() => {
+
+        dispatch(fetchProducts());
+
+       
+    },[dispatch])
+
+
+     const Handle_Add_Cart_items = (product) => {
+            
+    
+            dispatch(Add_To_Cart(product));
+    
+            navigate('/cart');
     }
 
 
 
-
-
-    const {productid} = useParams();
-
-    const navigate = useNavigate();
-
-
-
-    const { loading , isError , setLoading , setIsError , product , setProduct , Handle_Add_Cart_items , cartItems} = useCart();    
-
-   
-
-
-
-    const [slide , setSlide] = useState(0);
 
 
 
@@ -108,15 +120,7 @@ function ProductInfo(){
 
 
 
-     useEffect(() => {
-
-   
-
-        fetch_api(productid);
-
-
-
-        } ,[productid])
+ 
 
 
 
@@ -168,85 +172,72 @@ function ProductInfo(){
 
         <div className="productinfo-center wrapper">
 
-            <div className="product-gallery">
+           {product ? <div className="productinfo-main"><div className="product-gallery">
 
-                <div className="img-container">
+                    <div className="img-container">
 
-                    <img src={slide > 0 ? product.images[slide] : product?.thumbnail } alt="" />
+                        <img src={slide > 0 ? product.images[slide] : product?.thumbnail} alt="" />
 
-                </div>
+                    </div>
 
-                <div className="slide">
+                    <div className="slide">
 
-                    {
-
-                   
-
-                        product?.images?.map((item, index) => {
-
-
-
+                        {product?.images?.map((item, index) => {
                             // console.log(item);
 
-                           
+
+
+                            return (
 
 
 
-                            return(
+                                <img onClick={() => setSlide(index)} key={item} src={item} alt={index + "phote"} />
+
+                            );
+
+                        })}
+
+                    </div>
+
+                    <div onClick={handleBack} className="back-btn">
+
+                        <i className="fa-solid fa-arrow-left back"></i>
+
+                    </div>
+
+                </div><section className="single-product-info">
+
+                        {product && <>
+
+                            <h3 className="title">{product?.title}</h3>
+
+                            <h3 className="price">${product?.price}
+
+                                <span>{[...Array(Math.ceil(product?.rating))].map((_item, index) => {
 
 
 
-                                <img onClick={() => setSlide(index)} key={item} src={item} alt={index +"phote"} />
-
-                            )
-
-                        })
-
-                    }
-
-                </div>
-
-                <div onClick={handleBack} className="back-btn">
-
-                <i className="fa-solid fa-arrow-left back"></i>
-
-                </div>
-
-            </div>
-
-            <section className="single-product-info">
-
-               { product && <>
-
-                        <h3 className="title">{product?.title}</h3>
-
-                        <h3 className="price">${product?.price}
-
-                                <span>{[...Array(Math.ceil(product?.rating))].map((item, index) => {
-
-
-
-                                        return (<i key={index + "star"} className=" star fa-solid fa-star"></i>);
+                                    return (<i key={index + "star"} className=" star fa-solid fa-star"></i>);
 
                                 })}</span>
 
-                        </h3>
+                            </h3>
 
-                        <p className="desc">{product?.description}</p>
+                            <p className="desc">{product?.description}</p>
 
-                        {
+                            {(product ? cartItems.findIndex((item) => item.id === product.id) > -1 : false) ?
 
-                            (product ? cartItems.findIndex( (item) => item.id === product.id) > -1 : false) ?
+                                (<button onClick={() => navigate('/cart')} className="btn">Checkout Cart</button>) :
 
-                            (<button onClick={() => navigate('/cart')} className="btn">Checkout Cart</button>) :
+                                (<button onClick={() => Handle_Add_Cart_items(product)} className="btn">Add to Cart</button>)}
 
-                        (<button onClick={ () => Handle_Add_Cart_items(product)} className="btn">Add to Cart</button>)
+                        </>}
 
-                        }
-
-                </> }
-
-            </section>
+                    </section></div> :
+                    <div className="no-data ">
+                    <p className="not-avaiable paddingTopMobile-50 paddingTopDesktop-50">No Product Items are available</p>
+                    <button className="btn-back btn-black" onClick={() => navigate("/")}>Back To Shopping</button>
+                </div> }
 
 
 

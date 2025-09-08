@@ -2,12 +2,13 @@ import { useLocation, useNavigate } from "react-router-dom";
 import "./Navbar.css";
 import { useCart } from "../../Context/useCart";
 import { useState } from "react";
+import { useSelector } from "react-redux";
  
 function Navbar(){
  
     const data = useLocation();
     const navigate = useNavigate();
-    const {cartItems} = useCart();
+    const {cartItems} = useSelector( (state) => state.cart);
     return(<>
     <div className="navbar-container"  >
         <div className="navbar-center wrapper">

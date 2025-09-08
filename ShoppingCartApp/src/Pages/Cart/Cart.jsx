@@ -1,13 +1,28 @@
 import "./Cart.css";
 import { useCart } from "../../Context/useCart";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Add_To_Cart, Remove_CartItem } from "../../Redux/Slices/CartSlice";
  
 function Cart(){
  
-    const {cartItems , Handle_Add_Cart_items , Handle_Remove_Cart_Items} = useCart();
     const navigate = useNavigate();
-    console.log(cartItems);
-   
+    const dispatch = useDispatch();
+    const {cartItems} = useSelector((state) => state.cart);
+
+    const Handle_Add_Cart_items = (product) => {
+        
+
+        dispatch(Add_To_Cart(product));
+
+        navigate('/cart');
+    }  
+    
+       const Handle_Remove_Cart_Items = (product , isfullRemoved) => {
+
+        dispatch(Remove_CartItem({product , isfullRemoved}));
+       };
+
     return(<>
     <div className="cart-container" >
         <div className="cart-center wrapper">

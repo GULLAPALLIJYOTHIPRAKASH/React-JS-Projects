@@ -1,17 +1,36 @@
-import { act, useEffect, useReducer, useState } from "react";
+import {useEffect} from "react";
 import "./Home.css";
-import { Link } from "react-router-dom";
-import {useCart} from "../../Context/useCart.jsx";
+import { Link, useNavigate } from "react-router-dom";
 import InputSearch from "../../components/InputSearch/InputSearch.jsx";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchProducts , Add_To_Cart } from "../../Redux/Slices/CartSlice.js";
  
 function Home({ searchItem , handleSearch}){
  
  
+
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const {productsList , loading, isError  , cartItems} = useSelector((state) => state.cart);
+
+
+    useEffect(() => {
+
+        dispatch(fetchProducts())
+
+
+    },[dispatch])
  
-   
-    const  {productsList , loading, isError ,Handle_Add_Cart_items, cartItems}= useCart();
  
- 
+    const Handle_Add_Cart_items = (product) => {
+        
+
+        dispatch(Add_To_Cart(product));
+
+        navigate('/cart');
+    }
+
+
     if(loading == true){
  
         return(
@@ -27,7 +46,7 @@ function Home({ searchItem , handleSearch}){
     }
  
  
-    let SearchFilterItems = productsList.filter((item) => {
+    let SearchFilterItems = productsList?.filter((item) => {
  
         // return product.title.toLowerCase().indexOf(query.toLowerCase()) !== -1;
  
@@ -47,12 +66,6 @@ function Home({ searchItem , handleSearch}){
  
     }
  
- 
-    console.log(SearchFilterItems);
- 
-    console.log(searchItem);
-   
-   
    
  
    
@@ -63,7 +76,7 @@ function Home({ searchItem , handleSearch}){
     <div className="home-container">
         <div className="home-center wrapper">
             <section className="products-section  grid-template-cols paddingTopMobile-50 paddingTopDesktop-50 paddingBottomMobile-30 paddingBottomDesktop-30">
-               { SearchFilterItems.length > 0 ?
+               { SearchFilterItems?.length > 0 ?
  
  
     SearchFilterItems?.map((product) => {

@@ -1,5 +1,4 @@
 import "./Cart.css";
-import { useCart } from "../../Context/useCart";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { Add_To_Cart, Remove_CartItem } from "../../Redux/Slices/CartSlice";

@@ -4,8 +4,9 @@ import { Link, useNavigate } from "react-router-dom";
 import InputSearch from "../../components/InputSearch/InputSearch.jsx";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts , Add_To_Cart } from "../../Redux/Slices/CartSlice.js";
+import Sidebar from "../../components/SiderBar/Sidebar.jsx";
  
-function Home({ searchItem , handleSearch}){
+function Home({ category , handleCategory , searchItem , handleSearch}){
  
  
 
@@ -68,14 +69,19 @@ function Home({ searchItem , handleSearch}){
  
    
  
-   
+  
+    console.log(category);
+    
  
  
     return(<>
-    <InputSearch searchItem={searchItem} handleSearch={handleSearch} />
-    <div className="home-container">
-        <div className="home-center wrapper">
-            <section className="products-section  grid-template-cols paddingTopMobile-50 paddingTopDesktop-50 paddingBottomMobile-30 paddingBottomDesktop-30">
+    <div className="flex-container">
+            <Sidebar handleCategory={handleCategory} />
+        <div className="sub-container">
+            <InputSearch searchItem={searchItem} handleSearch={handleSearch} />
+            <div className="home-container">
+                <div className="home-center">
+                            <section className="products-section  grid-template-cols paddingTopMobile-50 paddingTopDesktop-50 paddingBottomMobile-30 paddingBottomDesktop-30">
                { SearchFilterItems?.length > 0 ?
  
  
@@ -116,6 +122,10 @@ function Home({ searchItem , handleSearch}){
             </section>
         </div>
     </div>
+        </div>
+        
+    </div>
+    
     </>)
 }
  

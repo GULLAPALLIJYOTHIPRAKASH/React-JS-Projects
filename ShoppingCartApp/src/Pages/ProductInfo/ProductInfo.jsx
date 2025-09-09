@@ -1,7 +1,6 @@
 import "./ProductInfo.css";
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { useCart } from "../../Context/useCart";
 import { useDispatch, useSelector } from "react-redux";
 import { Add_To_Cart, fetchProducts } from "../../Redux/Slices/CartSlice";
 
@@ -9,70 +8,6 @@ import { Add_To_Cart, fetchProducts } from "../../Redux/Slices/CartSlice";
 
 
 function ProductInfo(){
-
-   
-
-    // const fetch_api = async (id) => {
-
-
-
-    //     setLoading(true)
-
-    //     setIsError({status: false , msg: ""})
-
-       
-
-    //     try {
-
-           
-
-    //         const req = await fetch(`https://dummyjson.com/products/${id}`);
-
-    //         const res = await req.json();
-
-
-
-
-
-
-
-    //         setLoading(false)
-
-    //         setIsError({status: false , msg: ""});
-
-
-
-    //         setProduct(res)
-
-
-
-    //         if(req.status == 404){
-
-
-
-    //             throw new Error("Data Not Found...!")
-
-    //         }
-
-           
-
-           
-
-    //     } catch (error) {
-
-
-
-    //         setLoading(false)
-
-    //         setIsError({status: true , msg: error.message || "SomeThing went wrong....!"});
-
-           
-
-
-
-    //     }
-
-    // }
 
 
     const {productid} = useParams();
@@ -213,7 +148,7 @@ function ProductInfo(){
 
                             <h3 className="price">${product?.price}
 
-                                <span>{[...Array(Math.ceil(product?.rating))].map((_item, index) => {
+                                <span> {[...Array(Math.floor(product?.rating))].map((_item, index) => {
 
 
 

@@ -10,9 +10,9 @@ function InputSearch({ searchItem,handleSearch}){
 
     <div className="input-search-container">
 
-        <div className="input-search-center wrapper">
+        <div className="input-search-center">
 
-          <div className="paddingTopMobile-50 paddingTopDesktop-50">
+          <div className="paddingTopMobile-20 paddingTopDesktop-20">
 
             <input type="search" name="search" id="search-product" value={searchItem}  onChange={handleSearch} placeholder="Search your products ...!" />
 

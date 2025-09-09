@@ -1,0 +1,107 @@
+.common{
+
+    width: 100%;
+    /* border:2px solid red; */
+}
+
+.sidebar-title{
+  
+    font-size: 18px;
+
+    text-align: center;
+
+    letter-spacing: 1px;
+
+    font-weight: bold;
+
+    
+}
+
+.all-labels{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* padding: 10px; */
+    gap: 15px;
+    margin-top: 10px;
+    
+}
+
+.sidebar-label-container{
+
+    position: relative;
+    display: block;
+    /* border: 1px solid black; */
+    margin-left: 30px;
+    font-size: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    user-select: none;
+    
+}
+
+.sidebar-label-container input{
+
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+
+}
+
+.sidebar-label-container .checkmark{
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    background-color: #eee;
+    border-radius: 50%;
+    margin-left: -30px;
+    transition: all 0.2s linear;
+}
+
+.sidebar-label-container input:hover ~ .checkmark{
+
+    background-color: #ccc;
+}
+
+
+.sidebar-label-container input:checked ~ .checkmark{
+
+    background-color: orangered;
+}
+
+.sidebar-label-container .checkmark::after{
+
+    position: absolute;
+    content: "";
+    width: 7px;
+    height: 7px;
+    background-color: white;
+    top:50%;
+    left: 50%;
+    border-radius: 50%;
+    transform: translate(-50% , -50%);
+    display: none;
+
+}
+
+.sidebar-label-container input:checked ~.checkmark::after{
+
+    display: block;
+}
+
+@media screen and (min-width: 768px) {
+
+    .sidebar-label-container{
+
+           font-size: 16px;
+
+        font-weight: normal;
+
+        letter-spacing: 1px;
+    }
+    
+}

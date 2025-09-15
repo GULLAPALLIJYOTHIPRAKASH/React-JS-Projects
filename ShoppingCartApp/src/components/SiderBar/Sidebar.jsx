@@ -1,5 +1,6 @@
 import Category from "../Category/Category";
 import "./Sidebar.css";
+import React from "react";
 
 function Sidebar({handleCategory}){
 
@@ -12,4 +13,4 @@ function Sidebar({handleCategory}){
     </>)
 }
 
-export default Sidebar;
+export default React.memo(Sidebar);

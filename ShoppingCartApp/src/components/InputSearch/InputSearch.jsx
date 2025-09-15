@@ -1,5 +1,5 @@
 import "./InputSearch.css";
-
+import React from "react";
 
 
 function InputSearch({ searchItem,handleSearch}){
@@ -28,4 +28,4 @@ function InputSearch({ searchItem,handleSearch}){
 
 
 
-export default InputSearch;
+export default React.memo(InputSearch);

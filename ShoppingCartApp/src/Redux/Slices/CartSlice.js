@@ -2,22 +2,22 @@ import {createSlice , createAsyncThunk} from "@reduxjs/toolkit";
 
 
 
-export const fetchProducts = createAsyncThunk('cart/fetchProducts' , async () => {
+// export const fetchProducts = createAsyncThunk('cart/fetchProducts' , async () => {
 
-    const req = await fetch("https://dummyjson.com/products");
-    const res = await req.json();
-    if(req.status == 404){
+//     const req = await fetch("https://dummyjson.com/products?limit=194");
+//     const res = await req.json();
+//     if (!req.ok) {
+//     throw new Error(`Error ${req.status}: ${res.message || 'Failed to fetch products'}`);
+// }
 
-        throw new Error("Data Not Found");
-    }
 
-    return res.products;
-})
+//     return res.products;
+// })
 const initialState = {
 
-    productsList:[],
-    loading:true,
-    isError: {status: false , msg:""},
+    // productsList:[],
+    // loading:false,
+    // isError: {status: false , msg:""},
     cartItems:[],
 
 
@@ -57,7 +57,7 @@ const CartSlices =  createSlice({
                 }
             }
 
-            console.log(cpyCartItems);
+            // console.log(cpyCartItems);
             
 
             state.cartItems = cpyCartItems;
@@ -94,24 +94,24 @@ const CartSlices =  createSlice({
 
         
     },
-    extraReducers: (builder) => {
+    // extraReducers: (builder) => {
 
-        builder.addCase(fetchProducts.pending , (state , action) => {
+    //     builder.addCase(fetchProducts.pending , (state , action) => {
 
-            state.loading = true ;
-            state.isError = {status: false , msg:""};
-        })
-        .addCase(fetchProducts.fulfilled , (state , action) => {
+    //         state.loading = true ;
+    //         state.isError = {status: false , msg:""};
+    //     })
+    //     .addCase(fetchProducts.fulfilled , (state , action) => {
 
-            state.loading = false;
-            state.productsList = action.payload;
-        })
-        .addCase(fetchProducts.rejected , (state , action) => {
+    //         state.loading = false;
+    //         state.productsList = action.payload;
+    //     })
+    //     .addCase(fetchProducts.rejected , (state , action) => {
 
-            state.loading  = false;
-            state.isError = {status: true , msg: action.error.message || "Something went Wrong...!"}
-        })
-    }
+    //         state.loading  = false;
+    //         state.isError = {status: true , msg: action.error.message || "Something went Wrong...!"}
+    //     })
+    // }
 
 
 });

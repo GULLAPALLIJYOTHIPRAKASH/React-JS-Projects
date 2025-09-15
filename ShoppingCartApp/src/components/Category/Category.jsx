@@ -1,6 +1,7 @@
 import "./Category.css";
+import React from "react";
 
-function Category({handleCategory}){
+function Category({ handleCategory}){
 
     const data = [
   "beauty",
@@ -28,20 +29,19 @@ function Category({handleCategory}){
   "womens-shoes",
   "womens-watches"
 ]
-
     return(<>
     <div className="category common">
         <h1 className="sidebar-title">Category</h1>
         <div className="all-labels">
             <label className="sidebar-label-container">
-                <input type="radio" name="category"  value="" onChange={handleCategory} />
+                <input type="radio" name="category"  value=""  onChange={handleCategory} />
                 <span className="checkmark"></span>All
             </label>
             {data.map((item , index) => {
                 
                 return(
                     <label key={item + index} className="sidebar-label-container">
-                        <input type="radio" name="category"  value={item} onChange={handleCategory}/>
+                        <input type="radio" name="category"    value={item} onChange={handleCategory}/>
                         <span className="checkmark"></span>{item}
                     </label>
                 )

@@ -108,6 +108,27 @@
  }
 
 
+.pagination-container .page-show{
+
+    font-size: 14px;
+    letter-spacing: 1px;
+    color: orangered;
+}
+
+.page-show select{
+
+    outline: none;
+    border: 1px solid orangered;
+    padding: 5px 10px;
+}
+
+.page-show select>option{
+
+    background-color: #eceaea;
+    color: orangered;
+}
+    
+
 @media screen and (min-width: 768px){
 
 

@@ -2,7 +2,8 @@ import "./ProductInfo.css";
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Add_To_Cart, fetchProducts } from "../../Redux/Slices/CartSlice";
+import { Add_To_Cart} from "../../Redux/Slices/CartSlice";
+import useProductsList from "../../Context/useProductsList";
 
 
 
@@ -13,17 +14,13 @@ function ProductInfo(){
     const {productid} = useParams();
     const navigate = useNavigate();  
     const dispatch = useDispatch();
-    const {productsList , loading, isError , cartItems} = useSelector((state) => state.cart);
+    const {cartItems} = useSelector((state) => state.cart);
+    const[productsList , isloading , isError ] = useProductsList()
 
     const [slide , setSlide] = useState(0);
-    let product = productsList.find((item) => item.id == productid ) ;
+    let product = productsList?.find((item) => item.id == productid ) ;
 
-    useEffect(() => {
-
-        dispatch(fetchProducts());
-
-       
-    },[dispatch])
+  
 
 
      const Handle_Add_Cart_items = (product) => {
@@ -59,7 +56,7 @@ function ProductInfo(){
 
 
 
-    if(loading == true){
+    if(isloading){
 
 
 
@@ -75,7 +72,7 @@ function ProductInfo(){
 
 
 
-    if(isError.status){
+    if(isError){
 
 
 

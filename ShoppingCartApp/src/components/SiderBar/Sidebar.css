@@ -1,9 +1,9 @@
 .sidebar-container{
 
-    width: 30%;
+    width: 35%;
     min-height: 100vh;
     padding: 10px 15px;
-    border-right: 1px solid orange ;
+    border-right: 1px solid orangered ;
 }
 
 @media screen and (min-width: 768px){

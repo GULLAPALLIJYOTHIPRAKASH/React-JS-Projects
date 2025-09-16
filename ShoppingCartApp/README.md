@@ -1,12 +1,54 @@
-# React + Vite
+# 🛒 Shopping Cart Web App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A **responsive shopping cart web application** built using **React.js**, **Redux Toolkit**, **React Query**, **LocalStorage** , **React toastify**, and modern **CSS Grid & Flex layouts**.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# 🌐 Live Demo
 
-## Expanding the ESLint configuration
+👉 [View Live Project](https://gjlp-shoppingcart-app.netlify.app)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Try out the product filters and search functionality live.
+
+
+
+## ✅ Features
+
+- Add / Remove products from cart  
+- Persistent Cart stored in **LocalStorage**  
+- Filter products by **Category**  
+- Search products by **Title**  
+- Paginated product listing  
+- Product details page with image gallery  
+- Order Summary with total price calculation  
+- Responsive design (mobile & desktop)  
+- Smooth navigation using **React Router**
+
+---
+
+## ⚡ Tech Stack
+
+- ✅ React.js (Functional Components & Hooks)  
+- ✅ Redux Toolkit for State Management  
+- ✅ React Query for Data Fetching & Caching  
+- ✅ LocalStorage for Cart Persistence  
+- ✅ CSS Grid & Flexbox for Layout Design  
+- ✅ React Router for Routing  
+- ✅ Font Awesome for Icons
+
+---
+
+
+## Skills Demonstrated
+- **Vanilla JavaScript**: For creating interactive and dynamic content.
+- **Front-End Development**: Expertise in crafting modern, responsive websites.
+- **Web Design**: A keen eye for design and usability.
+- **Web Development**: Combining technical knowledge and creativity to develop engaging websites.
+
+
+## Why This Project?
+- **Showcasing Expertise**: This project demonstrates my capabilities as a front-end web developer.
+- **Responsive Design**: A modern and mobile-friendly design reflects my ability to adapt to current trends.
+- **Commitment to Excellence**: It tells a story of my hard work, attention to detail, and passion for web development.
+
+

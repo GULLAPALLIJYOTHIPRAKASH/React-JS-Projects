@@ -1,4 +1,5 @@
 import "./Cart.css";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { Add_To_Cart, Remove_CartItem } from "../../Redux/Slices/CartSlice";
@@ -9,6 +10,12 @@ function Cart(){
     const dispatch = useDispatch();
     const {cartItems} = useSelector((state) => state.cart);
 
+     useEffect(() => {
+    
+            localStorage.setItem("cartItem" , JSON.stringify(cartItems))
+        },[cartItems])
+
+    // dipatch action for add to cart
     const Handle_Add_Cart_items = (product) => {
         
 
@@ -17,7 +24,8 @@ function Cart(){
         navigate('/cart');
     }  
     
-       const Handle_Remove_Cart_Items = (product , isfullRemoved) => {
+   // dipatch action for remove item 
+    const Handle_Remove_Cart_Items = (product , isfullRemoved) => {
 
         dispatch(Remove_CartItem({product , isfullRemoved}));
        };
@@ -95,4 +103,4 @@ function Cart(){
     </>)
 }
  
-export default Cart;
+export default React.memo(Cart);

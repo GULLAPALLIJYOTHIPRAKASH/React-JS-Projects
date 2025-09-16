@@ -1,10 +1,11 @@
 import "./App.css"
 import { Route, Routes } from "react-router-dom";
-import { useEffect, useState } from "react";
 import Navbar from "./components/Navbar/Navbar";
 import Home from "./Pages/Home/Home";
 import Cart from "./Pages/Cart/Cart";
 import ProductInfo from "./Pages/ProductInfo/ProductInfo";
+import { ToastContainer, toast } from 'react-toastify';
+
 
 
 
@@ -27,6 +28,8 @@ function App(){
         <Route path="*"  element={<Home   />}/>
 
     </Routes>
+    <ToastContainer autoClose={1000} />
+
 
    
 

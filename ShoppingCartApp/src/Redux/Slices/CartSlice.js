@@ -1,24 +1,29 @@
 import {createSlice , createAsyncThunk} from "@reduxjs/toolkit";
+  import {toast } from 'react-toastify';
 
 
+  const persistedState  = (() => {
+        
+    let defaultvalue ;
 
-// export const fetchProducts = createAsyncThunk('cart/fetchProducts' , async () => {
+        try {
+            
+            defaultvalue = JSON.parse(localStorage.getItem("cartItem")) || []
+        } catch (error) {
 
-//     const req = await fetch("https://dummyjson.com/products?limit=194");
-//     const res = await req.json();
-//     if (!req.ok) {
-//     throw new Error(`Error ${req.status}: ${res.message || 'Failed to fetch products'}`);
-// }
+            defaultvalue = []
+            
+        }
 
+        return defaultvalue
+    })();
 
-//     return res.products;
-// })
 const initialState = {
 
     // productsList:[],
     // loading:false,
     // isError: {status: false , msg:""},
-    cartItems:[],
+    cartItems: persistedState
 
 
 }
@@ -61,6 +66,8 @@ const CartSlices =  createSlice({
             
 
             state.cartItems = cpyCartItems;
+
+            toast.success("Product added to carted" , {toastId: "product-add"})
         },
 
         Remove_CartItem : (state , action) => {
@@ -74,6 +81,9 @@ const CartSlices =  createSlice({
             if(isfullRemoved){
 
                 cpyCartItems.splice(findCartItemIndex , 1);
+
+                    toast.warn("Product removed from cart" , {toastId: "product-remove"})
+
             }else{
 
                 cpyCartItems[findCartItemIndex] = {
@@ -82,11 +92,15 @@ const CartSlices =  createSlice({
                     quantity :  cpyCartItems[findCartItemIndex].quantity - 1, // decrement quantity
                     totalPrice : (( cpyCartItems[findCartItemIndex].quantity - 1 ) * cpyCartItems[findCartItemIndex].price ), 
                 }
+                                        toast.warn("Product quantity decreased" , {toastId: "product-remove"})
+
 
 
             }
 
             state.cartItems = cpyCartItems;
+
+
 
 
         }

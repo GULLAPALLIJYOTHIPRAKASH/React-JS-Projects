@@ -1,6 +1,7 @@
 import "./ProductInfo.css";
+import React, { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Add_To_Cart} from "../../Redux/Slices/CartSlice";
 import useProductsList from "../../Context/useProductsList";
@@ -15,14 +16,20 @@ function ProductInfo(){
     const navigate = useNavigate();  
     const dispatch = useDispatch();
     const {cartItems} = useSelector((state) => state.cart);
-    const[productsList , isloading , isError ] = useProductsList()
+    const[productsList , isloading , isError ] = useProductsList();
+
+     useEffect(() => {
+    
+            localStorage.setItem("cartItem" , JSON.stringify(cartItems))
+        },[cartItems])
 
     const [slide , setSlide] = useState(0);
+
+    // display single product
     let product = productsList?.find((item) => item.id == productid ) ;
 
-  
 
-
+    // dispatch action for add to cart
      const Handle_Add_Cart_items = (product) => {
             
     
@@ -33,29 +40,14 @@ function ProductInfo(){
 
 
 
-
-
-
+    // event for back
     const handleBack= () => {
 
-
-
         navigate('/');
-
     }
 
 
-
-
-
-
-
-
-
- 
-
-
-
+    // initial laoding on api
     if(isloading){
 
 
@@ -185,4 +177,4 @@ function ProductInfo(){
 
 
 
-export default ProductInfo;
+export default React.memo(ProductInfo);

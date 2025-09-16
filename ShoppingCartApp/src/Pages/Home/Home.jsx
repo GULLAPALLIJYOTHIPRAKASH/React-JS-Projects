@@ -6,27 +6,36 @@ import { useDispatch, useSelector } from "react-redux";
 import { Add_To_Cart } from "../../Redux/Slices/CartSlice.js";
 import Sidebar from "../../components/SiderBar/Sidebar.jsx";
 import useProductsList from "../../Context/useProductsList.jsx";
-import { use } from "react";
+import React from "react";
  
 function Home(){
 
+    // search, category
     const [searchItem , setSearchItem] = useState("")
     const [category , setCategory] = useState("");
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
+
     const[productsList , isloading , isError ,pageNo , setPageNo] = useProductsList()
     const {cartItems} = useSelector((state) => state.cart);
 
+    useEffect(() => {
+
+        localStorage.setItem("cartItem" , JSON.stringify(cartItems))
+    },[cartItems])
 
 
+
+    // event search
     const handleSearch =useCallback( (e) => {
 
         setSearchItem(e.target.value);
 
     },[searchItem]);
 
+    // event pagination
     const HandlePageNo =useCallback( (e) => {
 
         setPageNo(Number(e.target.value));
@@ -34,6 +43,7 @@ function Home(){
 
     },[pageNo])
 
+    // event category
      const handleCategory = useCallback((e) => {
 
         
@@ -45,35 +55,17 @@ function Home(){
 
 
 
-
-
-
-
-
-   
-
-
-
-
-
+    // dispatch action for add to cart 
     const Handle_Add_Cart_items = (product) => {
 
-       
-
-
-
         dispatch(Add_To_Cart(product));
-
-
-
-        navigate('/cart');
-
     }
 
 
 
 
 
+    // initial loading
     if(isloading){
 
 
@@ -91,7 +83,6 @@ function Home(){
     }
 
 
-
     if(isError){
 
 
@@ -104,30 +95,17 @@ function Home(){
 
     
 
-
-
-
-
+    // filter search result
     let SearchFilterItems = productsList?.filter((item) => {
 
-
-
         // return product.title.toLowerCase().indexOf(query.toLowerCase()) !== -1;
-
-
-
         return item.title.toLowerCase().indexOf(searchItem.toLowerCase()) !== -1;
-
-       
 
     })
 
 
 
-
-
-   
-
+// filter for search , category
  function filterProductData(all_product , query , selected){
 
 
@@ -172,8 +150,7 @@ function Home(){
 
  }
 
-
-
+//  data 
  let result = filterProductData(productsList ,searchItem , category)
 
 
@@ -310,4 +287,4 @@ function Home(){
 
 
 
-export default Home;
+export default React.memo(Home);

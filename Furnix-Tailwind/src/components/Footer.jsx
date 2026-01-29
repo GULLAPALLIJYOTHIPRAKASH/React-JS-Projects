@@ -14,10 +14,10 @@ function Footer(){
                     <h1 className="text-xl  text-white font-bold"><span className="text-[#ffaf4d] text-3xl">F</span>URNIX.</h1>
                     <p className="text-xl text-white font-normal my-4">SIGN UP TO RECEIVE 10% OFF <br /> YOUR FIRST ORDER</p>
     
-                    <span className=" backdrop-blur-md bg-gray-100/30 p-2 rounded-full">
-                        <input type="email" name="email" placeholder="Enter your email"  className="outline-0 border-0 text-white p-2 laceholder:text-white "/>
-                        <i className="fa-solid fa-arrow-right text-white p-1 text-[18px] font-bold  rounded-full cursor-pointer  bg-[#ffaf4d]"></i>
-                    </span>
+                    <div className="flex justify-center items-center w-[270px] backdrop-blur-md bg-gray-100/30 p-2 rounded-full">
+                        <input type="email" name="email" placeholder="Enter your email"  className="w-[100%] outline-0 border-0 text-white p-2 laceholder:text-white "/>
+                        <i className="fa-solid  fa-arrow-right text-white p-2 text-[18px] font-bold  rounded-full cursor-pointer  bg-[#ffaf4d]"></i>
+                    </div>
     
                     <br />
                     <br />

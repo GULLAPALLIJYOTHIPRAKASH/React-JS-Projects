@@ -2,6 +2,8 @@ import { useReducer, useState  , useEffect} from "react";
 
  function useTodo(){
 
+
+    // I will add typescript 
  
   
   // local storage obj

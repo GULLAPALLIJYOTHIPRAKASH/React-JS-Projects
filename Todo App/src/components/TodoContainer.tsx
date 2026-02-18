@@ -1,10 +1,10 @@
 import './TodoContainer.css';
-import useTodo from '../custom hook/useTodo';
+import useTodo from '../custom-hook/useTodo.js';
 
 function TodoContainer(){
 
- const [state  ,  text , setText , handle_submit , handle_delete , handle_editing_status , 
-    handle_filter_option , handle_Task_status , handle_clearAll] = useTodo();
+ const {state  ,  text , setText , handle_submit , handle_delete , handle_editing_status , 
+    handle_filter_option , handle_Task_status , handle_clearAll} = useTodo();
 
     let arr = [];
 

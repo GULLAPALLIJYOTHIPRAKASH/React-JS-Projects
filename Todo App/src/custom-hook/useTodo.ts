@@ -1,44 +1,93 @@
-import { useReducer, useState  , useEffect} from "react";
+import { useReducer, useState  , useEffect, type MouseEvent} from "react";
+
+// I will add typescript 
+
+    // single todo obj
+    interface Todo{
+
+        task: string, 
+        id: number,
+        task_status:string
+
+
+    }
+
+    // Editing
+    interface Editing{
+
+        
+            id:number | null,
+            msg:string ,
+            status: boolean
+            task_status?:string
+
+
+        
+    }
+
+
+    // TodoList
+    interface TodoList{
+
+        tasks: Todo[],
+        option:string,
+        editing:Editing
+    }
+
+
+    // Action
+   type Action = 
+   {type:"Add_Task" ; payload: Todo} | 
+   {type:"Delete_Task" ; payload:number} | 
+   {type:"Edit_task_status" ; payload:Editing} | 
+   {type:"Add_Edit_Task"; payload: {task:string , task_status: string}} |
+   {type:"Set_Task_status" ; payload:{id:number, status:string}} |
+   {type:"Clear_All_Task" ; payload:string} |
+   {type:"Add_Filter_option" ; payload:string}
+
+ 
 
  function useTodo(){
 
 
-    // I will add typescript 
- 
+
   
   // local storage obj
-
-    const initialValue = () => {
+//   it will return TodoList
+    const initialValue = ():TodoList => {
 
        
 
-        let obj = localStorage.getItem("todos");
+        //TS infered
+        let obj= localStorage.getItem("todos");
 
         if(!obj){
 
-   
+            //TodoList  
+            const defaultValue : TodoList = {tasks: [], editing: {status:false , id:null , msg : ""}  , option: "all"}
 
-            localStorage.setItem("todos" , JSON.stringify({tasks: [], editing: {status:false , id:"" , msg : ""}  , option: "all"}));
+            localStorage.setItem("todos" , JSON.stringify(defaultValue));
 
-   
+            return defaultValue;
 
-            return ({ tasks: [], editing: {status:false , id:"" , msg : ""} , option : "all"});
 
         }
 
    
 
-        return JSON.parse(obj);
+        return JSON.parse(obj) as TodoList;
 
     }
 
 
 
+    
+
    
 
     // todo operation
 
-    const reducer = (state , action) => {
+    const reducer = (state:TodoList , action:Action):TodoList => {
 
 
 
@@ -246,7 +295,7 @@ import { useReducer, useState  , useEffect} from "react";
 
 
 
-                return({ tasks: [], editing: {status: false , id:""} , option: "all"})
+                return({ tasks: [], editing: {status: false , id:null , msg:""} , option: "all"})
 
             }
 
@@ -324,7 +373,7 @@ import { useReducer, useState  , useEffect} from "react";
 
     const [state , dispatch] = useReducer(reducer , initialValue());
 
-    const [text , setText] = useState(state.editing.status ? state.editing.msg : "");
+    const [text , setText] = useState<string>(state.editing.status ? state.editing.msg : "");
 
    
 
@@ -333,7 +382,7 @@ import { useReducer, useState  , useEffect} from "react";
 
 
     // handle submit with (New / edited ) todos
-    const handle_submit = (e) =>{
+    const handle_submit = (e:MouseEvent<HTMLButtonElement>) =>{
 
         e.preventDefault();
 
@@ -371,7 +420,7 @@ import { useReducer, useState  , useEffect} from "react";
 
                 type:"Edit_task_status",
 
-                payload: {status:false , id:"" , msg : "" , task_status:""}
+                payload: {status:false , id:null , msg : "" , task_status:""}
 
 
 
@@ -447,7 +496,7 @@ import { useReducer, useState  , useEffect} from "react";
 
     // handle delete todo
 
-    const handle_delete = (id) => {        
+    const handle_delete = (id:number):void => {        
 
 
 
@@ -469,7 +518,7 @@ import { useReducer, useState  , useEffect} from "react";
 
     // handle editing status change
 
-    const handle_editing_status = (msg , id , task_status) => {
+    const handle_editing_status = (msg:string , id:number , task_status:string):void => {
 
 
 
@@ -482,6 +531,7 @@ import { useReducer, useState  , useEffect} from "react";
 
 
         // change edit todo status
+        
 
         dispatch({
 
@@ -505,7 +555,7 @@ import { useReducer, useState  , useEffect} from "react";
 
     // handle clear all todo
 
-    const handle_clearAll = () =>{
+    const handle_clearAll = ():void =>{
 
 
 
@@ -531,7 +581,7 @@ import { useReducer, useState  , useEffect} from "react";
 
     // handle task status option ( done / pending )
 
-    const handle_Task_status = (id) => {
+    const handle_Task_status = (id:number):void => {
 
 
 
@@ -552,6 +602,11 @@ import { useReducer, useState  , useEffect} from "react";
         })
 
 
+        if(!item) return ;
+
+        
+
+
 
         // set task status todo
 
@@ -561,7 +616,7 @@ import { useReducer, useState  , useEffect} from "react";
 
             type: "Set_Task_status",
 
-            payload: {id , status : item.task_status }
+            payload: {id:id , status : item.task_status }
 
 
 
@@ -577,8 +632,9 @@ import { useReducer, useState  , useEffect} from "react";
 
     // handle filter option tab
 
-    const handle_filter_option = (filter_opt) => {
+    const handle_filter_option = (filter_opt:string):void => {
 
+        
 
 
         // add filter tab
@@ -616,8 +672,8 @@ import { useReducer, useState  , useEffect} from "react";
     },[state]);
 
 
-     return([state  ,  text , setText,handle_submit , handle_delete , handle_editing_status , handle_filter_option , handle_Task_status , handle_clearAll])
+     return({state  ,  text , setText,handle_submit , handle_delete , handle_editing_status , handle_filter_option , handle_Task_status , handle_clearAll})
    
- }
+}
 
  export default useTodo;

@@ -1,12 +1,15 @@
 import './TodoContainer.css';
 import useTodo from '../custom-hook/useTodo.js';
+import { useEffect } from 'react';
 
 function TodoContainer(){
 
  const {state  ,  text , setText , handle_submit , handle_delete , handle_editing_status , 
     handle_filter_option , handle_Task_status , handle_clearAll} = useTodo();
 
-    let arr = [];
+    let arr:string[] = [];
+
+    
 
     return(<>
 

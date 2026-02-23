@@ -5,7 +5,7 @@ function About_US(){
 
     return (<>
      {/* About us Section */}
-        <div className="about-us-container font-[Jost]">
+        <div className="about-us-container font-[Jost]" id="About">
             <div className="about-us-center max-w-[1550px] mx-auto px-[20px] py-16 flex flex-col items-center sm:flex-row  sm:justify-center sm:items-start sm:gap-x-5">
                 <div className="about-info  mb-[20px]  sm:mb-0 sm:order-2 ">
                     <h3 className="text-[#ad2100] text-lg md:text-xl mb-2 mb:mb-4 ">About us</h3>

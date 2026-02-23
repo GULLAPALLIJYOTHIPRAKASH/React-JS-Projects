@@ -4,7 +4,7 @@ function Banner(){
 
     return(<>
     {/* Banner start */}
-        <div className="banner-container bg-white flex  justify-center items-center">
+        <div className="banner-container bg-white flex  justify-center items-center" id="home">
             <div className="banner-center max-w-[1550px] mx-auto px-[20px] relative  z-6">
                 <div className="heading mt-20">
                     <h1 className="font-[Jost] font-medium text-5xl  sm:ml-[20%] md:ml-[20%] tracking-1 sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl ">INOVA<span className="font-light">TION</span></h1>

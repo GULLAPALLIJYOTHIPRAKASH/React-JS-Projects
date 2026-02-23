@@ -9,7 +9,7 @@ function New_Arrivals(){
     return(<>
     
      {/* New Arrivals start */}
-        <div className="new-arrivals-container font-[Poppins]">
+        <div className="new-arrivals-container font-[Poppins]" id="offer">
             <div className="new-arrivals-center max-w-[1550px] mx-auto px-[20px] py-16">
                 <div className="heading mb-15">
                     <h1 className="text-[#a44837] text-xl  font-medium mb-4 md:text-2xl ">NEW ARRIVALS</h1>

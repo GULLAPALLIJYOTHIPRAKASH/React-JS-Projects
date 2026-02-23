@@ -46,10 +46,10 @@ function Navbar(){
             {/* Desktop Nav links */}
             <div className="desktop-nav hidden md:block order-2 flex justify-center items-center">
                 <ul className="desktop-nav-links flex justify-center items-center gap-x-20">
-                    <li className="text-lg font-medium text-black hover:text-[#ffaf4d] transition-all duration-300 linear"><a href="#">Home</a></li>
-                    <li className="text-lg font-medium text-black hover:text-[#ffaf4d] transition-all duration-300 linear"><a href="#">Shop</a></li>
-                    <li className="text-lg font-medium text-black hover:text-[#ffaf4d] transition-all duration-300 linear"><a href="#">Offers</a></li>
-                    <li className="text-lg font-medium text-black hover:text-[#ffaf4d] transition-all duration-300 linear"><a href="#">About</a></li>
+                    <li className="text-lg font-medium text-black hover:text-[#ffaf4d] transition-all duration-300 linear"><a href="#Home">Home</a></li>
+                    <li className="text-lg font-medium text-black hover:text-[#ffaf4d] transition-all duration-300 linear"><a href="#shop">Shop</a></li>
+                    <li className="text-lg font-medium text-black hover:text-[#ffaf4d] transition-all duration-300 linear"><a href="#offer">Offers</a></li>
+                    <li className="text-lg font-medium text-black hover:text-[#ffaf4d] transition-all duration-300 linear"><a href="#About">About</a></li>
                 </ul>
             </div>
         </div>

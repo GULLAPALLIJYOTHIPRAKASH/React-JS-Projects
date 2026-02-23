@@ -20,10 +20,6 @@ function App() {
     <Our_Story/>
     <Customer_Review/>
     <Footer/>
-    
-    
-    
-
     </>)
 
 

@@ -7,7 +7,7 @@ function Collections(){
     return(<>
     
       {/* collections start */}
-        <div className="collections-container  py-16">
+        <div className="collections-container  py-16" id="shop">
             <div className="collections-center max-w-[1550px] mx-auto px-[20px] ">
                 <div className="heading flex flex-col justify-center items-center md:flex-row md:justify-between md:items-center mb-15">
                     <h1 className="text-black text-xl font-medium tracking-[2px] mb-5 font-[Poppins] md:mb-0">LOVE WHERE YOU LIVE</h1>

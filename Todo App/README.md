@@ -52,6 +52,7 @@ Click the links above to view the live versions of this project.
 - **CSS3**: Advanced styling using  Flexbox, and media queries for responsiveness.
 - **JavaScript**: Interactive and dynamic functionality.
 - **React.js**: Component-based UI development.
+- **TypeScript**: Added Type Safety to Project.
 - **Vite.js**: A fast and modern development build tool.
 
 

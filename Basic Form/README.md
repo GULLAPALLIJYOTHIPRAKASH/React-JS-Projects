@@ -34,6 +34,7 @@ Click the links above to view the live versions of this project.
 - **HTML5**: Semantic structure for content and layout.
 - **CSS3**: Advanced styling using  Flexbox, and media queries for responsiveness.
 - **JavaScript**: Interactive and dynamic functionality.
+- **TypeScript**: Added Type Safety to Project.
 - **React.js**: Component-based UI development.
 - **Vite.js**: A fast and modern development build tool.
 

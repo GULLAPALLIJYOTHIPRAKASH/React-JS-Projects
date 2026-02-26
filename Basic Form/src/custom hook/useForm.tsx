@@ -1,10 +1,58 @@
-import { useState } from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
+
+
+
+type Gender = "male" | "female";
+
+interface Information{
+
+    firstname:string,
+
+    lastname:string,
+
+    email:string,
+
+    occupation:string,
+
+    company:string,
+
+    password:string,
+
+    confirmpassword:string,
+
+    gender: Gender, 
+
+}
+
+type InputStatus = { 
+
+
+     fname_status:   boolean,
+
+        lname_status:  boolean,
+
+        email_status:   boolean,
+
+        occupation_status:   boolean,
+
+        company_status:   boolean,
+
+        password_status:   boolean,
+
+        cpassword_status:  boolean,
+
+        gender_status?: boolean,
+
+        img_status:  boolean,
+
+
+}
 
 function useForm(){
 
-    const [image , setImage] = useState("");
+    const [image , setImage] = useState<File |null>(null);
 
-    const [information , setInfo] = useState({
+    const [information , setInfo] = useState<Information>({
 
         firstname:"",
 
@@ -26,7 +74,7 @@ function useForm(){
 
 
 
-    const [input_status  ,setInput_Status] = useState({
+    const [input_status  ,setInput_Status] = useState<InputStatus>({
 
 
 
@@ -56,35 +104,20 @@ function useForm(){
 
     // to check email with
 
- const  email_check = (email_value) => {
-
-
+ const  email_check = (email_value:string):boolean => {
 
     // email regular expression
 
     let email_regex = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/;
 
-
-
-
-
     // test with email regex with email input
-
-    let test = email_regex.test(email_value);
-
-
-
-    return test;
-
-
-
-
+    return email_regex.test(email_value);
 
 }
 
 
 
-const handle_submit =(e) =>{
+const handle_submit =(e:FormEvent<HTMLFormElement>) =>{
 
 
 
@@ -94,7 +127,7 @@ const handle_submit =(e) =>{
 
     // image validation
 
-     if(image == ""){
+     if(typeof image === null){
 
 
 
@@ -446,7 +479,7 @@ const handle_submit =(e) =>{
 
                     // reset states
 
-                            setImage("")
+                            setImage(null)
 
                             setInfo({
 
@@ -524,11 +557,13 @@ const handle_submit =(e) =>{
 
 
 
-    const handle_inputs = (e) => {
+    const handle_inputs = (e:ChangeEvent<HTMLInputElement>) => {
 
 
+          const { name, value } = e.target;
 
-        setInfo({...information , [e.target.name] : e.target.value.trim()});
+
+        setInfo({...information , [name  as keyof Information]: e.target.value.trim()});
 
 
 
@@ -538,7 +573,7 @@ const handle_submit =(e) =>{
 
     }
 
-    return( [ image , information , handle_inputs , handle_submit ,setImage ])
+    return( {image , information , handle_inputs , handle_submit ,setImage })
 
 
    

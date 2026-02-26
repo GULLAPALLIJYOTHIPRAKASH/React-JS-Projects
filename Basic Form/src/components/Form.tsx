@@ -1,4 +1,4 @@
-import {useState } from 'react';
+import {ChangeEvent, FormEvent, } from 'react';
 import './Form.css';
 import useForm from '../custom hook/useForm';
 
@@ -9,7 +9,7 @@ function Form(){
 
 
 
-      const [ image , information , handle_inputs , handle_submit,setImage ] = useForm();
+      const { image , information , handle_inputs , handle_submit,setImage } = useForm();
 
 
     return(<>
@@ -18,7 +18,7 @@ function Form(){
 
         <div className="form-center">
 
-           <form className="form-section" >
+           <form className="form-section" onSubmit={(e: FormEvent<HTMLFormElement>) => {handle_submit(e)}} >
 
            <div className="heading">
 
@@ -38,7 +38,7 @@ function Form(){
 
                 <p>add profile</p>
 
-                <input type="file"  accept="image/png, image/gif, image/jpeg" name="uplaod-img" id="upload-img"  onChange={(e) => setImage(e.target.files[0])} hidden/>
+                <input type="file"  accept="image/png, image/gif, image/jpeg" name="uplaod-img" id="upload-img"  onChange={(e: ChangeEvent<HTMLInputElement>) => { const file = e.target.files?.[0] ?? null;setImage(file);}} hidden/>
 
             </div>
 
@@ -50,7 +50,7 @@ function Form(){
 
                     <label htmlFor="firstname">firstname</label>
 
-                    <input type="text" name="firstname" id="firstname"  placeholder='Enter firstname...' value={information.firstname} onChange={(e) => {handle_inputs(e)}} required  />
+                    <input type="text" name="firstname" id="firstname"  placeholder='Enter firstname...' value={information.firstname} onChange={handle_inputs} required  />
 
                 </div>
 
@@ -58,7 +58,7 @@ function Form(){
 
                     <label htmlFor="lastname">lastname</label>
 
-                    <input type="text" name="lastname" id="lastname" placeholder='Enter lastname...'   value={information.lastname}  onChange={(e) => {handle_inputs(e)}} required />
+                    <input type="text" name="lastname" id="lastname" placeholder='Enter lastname...'   value={information.lastname}  onChange={handle_inputs} required />
 
                 </div>
 
@@ -68,7 +68,7 @@ function Form(){
 
                     <label htmlFor="email">email</label>
 
-                    <input type="email" name="email" id="email" placeholder='Enter email...'   value={information.email} onChange={(e) => {handle_inputs(e)}}  required />
+                    <input type="email" name="email" id="email" placeholder='Enter email...'   value={information.email} onChange={handle_inputs}  required />
 
                 </div>
 
@@ -78,7 +78,7 @@ function Form(){
 
                             <label htmlFor="occupation">occupation</label>
 
-                            <input type="text" name="occupation" id="occupation" placeholder='Enter occupation...'  value={information.occupation}  onChange={(e) => {handle_inputs(e)}} required />
+                            <input type="text" name="occupation" id="occupation" placeholder='Enter occupation...'  value={information.occupation}  onChange={handle_inputs} required />
 
                     </div>
 
@@ -86,7 +86,7 @@ function Form(){
 
                             <label htmlFor="company">company</label>
 
-                            <input type="text" name="company" id="company" placeholder='Enter company... '   value={information.company} onChange={(e) => {handle_inputs(e)}} required />
+                            <input type="text" name="company" id="company" placeholder='Enter company... '   value={information.company} onChange={handle_inputs} required />
 
                     </div>
 
@@ -98,7 +98,7 @@ function Form(){
 
                     <label htmlFor="password">password</label>
 
-                    <input type="text" name="password" id="password" placeholder='Enter password...'  value={information.password}  onChange={(e) => {handle_inputs(e)}} required />
+                    <input type="text" name="password" id="password" placeholder='Enter password...'  value={information.password}  onChange={handle_inputs} required />
 
                 </div>
 
@@ -106,7 +106,7 @@ function Form(){
 
                     <label htmlFor="confirmpassword">Confirm password</label>
 
-                    <input type="text" name="confirmpassword" id="confirmpassword" placeholder='Enter confirmpassword...'  value={information.confirmpassword}  onChange={(e) => {handle_inputs(e)}} required />
+                    <input type="text" name="confirmpassword" id="confirmpassword" placeholder='Enter confirmpassword...'  value={information.confirmpassword}  onChange={handle_inputs} required />
 
                 </div>
 
@@ -116,17 +116,17 @@ function Form(){
 
                     <p>gender</p>
 
-                    <input type="radio" name="gender" id="male"  defaultChecked value="male"     onChange={(e) => {handle_inputs(e)}}/>
+                    <input type="radio" name="gender" id="male"  defaultChecked value="male"     onChange={handle_inputs}/>
 
                     <label htmlFor="male" >male</label>
 
-                    <input type="radio" name="gender" id="female" value="female"   onChange={(e) => {handle_inputs(e)}}/>
+                    <input type="radio" name="gender" id="female" value="female"   onChange={handle_inputs}/>
 
                     <label htmlFor="female">female</label>
 
                 </div>
 
-                <button onClick={(e) => {handle_submit(e)}}>Submit</button>
+                <button type='submit'>Submit</button>
 
             </div>
 

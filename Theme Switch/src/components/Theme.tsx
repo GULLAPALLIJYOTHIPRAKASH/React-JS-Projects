@@ -8,7 +8,7 @@ function Theme(){
 
 
 
-    const  [ theme , setThemeValue] = useTheme("theme" , "dark");
+    const  { value:theme , setThemeValue} = useTheme("theme" , "dark");
 
 
 

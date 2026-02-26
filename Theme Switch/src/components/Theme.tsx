@@ -1,5 +1,5 @@
 import './Theme.css';
-import useTheme from '../Custom Hook/UseTheme';
+import useTheme from '../custom-hooks/UseTheme';
 
 
 
